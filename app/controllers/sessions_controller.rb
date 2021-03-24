@@ -1,14 +1,14 @@
 class SessionsController < ApplicationController
 
   get "/login" do
-    "login form"
+    erb :"/sessions/login"
   end
 
   get "/signup" do
-    "signup form"
+    erb :"/sessions/signup"
   end
 
   get "/logout" do
-    "logout form"
+    erb :"/sessions/logout"
   end
 end
