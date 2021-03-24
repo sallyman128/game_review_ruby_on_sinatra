@@ -9,8 +9,6 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "mod2_final_project"
   end
 
-
-
   get "/" do
     erb :welcome
   end
