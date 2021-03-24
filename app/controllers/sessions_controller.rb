@@ -4,6 +4,10 @@ class SessionsController < ApplicationController
     erb :"/sessions/login"
   end
 
+  post "/sessions" do
+    params.inspect
+  end
+
   get "/signup" do
     erb :"/sessions/signup"
   end
