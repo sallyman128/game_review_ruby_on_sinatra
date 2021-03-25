@@ -1,11 +1,15 @@
 <h1>Login</h1>
 
 <form action="/sessions" method="POST">
-  <label for="user_email">Email: <input type="string" name="user[email]" id="user_email" /></label>
-  <br><br>
-  <label for="user_password">Password: <input type="password" name="user[password]" id="user_password" /></label>
+  <p>
+    <label for="user_email">Email: </label>
+    <input type="string" name="email" id="user_email" />
+  </p>
 
-  <br><br>
+  <p> 
+    <label for="user_password">Password: </label>
+    <input type="password" name="password" id="user_password" />
+  </p>
 
   <input type="submit" value="Login">
 </form>

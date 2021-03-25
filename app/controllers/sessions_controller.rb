@@ -5,7 +5,12 @@ class SessionsController < ApplicationController
   end
 
   post "/sessions" do
-    params.inspect
+    user = User.find_by(:email => params[:email])
+    if user && user.authenticate(params[:password])
+      "woohoo you logged in!"
+    else
+      redirect "/login"
+    end
   end
 
   get "/signup" do
