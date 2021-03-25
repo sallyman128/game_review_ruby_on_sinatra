@@ -1,1 +1,7 @@
-All the games publically avaialble
+<h1>All Games</h1>
+
+<% @games.each do |game| %>
+  <p><%= game.name %></p>
+<% end %>
+
+<a href="games/new"><input type="button" value="Add New Game"></a>
