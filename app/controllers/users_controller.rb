@@ -12,7 +12,8 @@ class UsersController < ApplicationController
       user.name = params[:name]
       user.password = params[:password]
       user.save
-      # assign user a session id
+      session[:email] = user.email
+      redirect "/games"
     end
   end
 
