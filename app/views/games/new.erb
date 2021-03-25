@@ -1,1 +1,20 @@
-a form for new games
+<h1>Add a new game</h1>
+
+<form>
+  <p>
+    <label for="game_name">Name: </label>
+    <input type="string" name="name" id="game_name" />
+  </p>
+
+  <p>
+    <label for="game_max_players">Maximum Players: </label>
+    <input type="integer" name="max_players" id="game_max_player" />
+  </p>
+
+  <p>
+    <label for="game_description">Description: </label>
+    <input type="text" name="description" id="game_description" />
+  </p>
+
+  <input type="submit" value="Submit New Game" />
+</form>
