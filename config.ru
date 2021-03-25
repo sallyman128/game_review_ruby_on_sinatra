@@ -7,4 +7,5 @@ end
 use Rack::MethodOverride
 use SessionsController
 use UsersController
+use GamesController
 run ApplicationController
