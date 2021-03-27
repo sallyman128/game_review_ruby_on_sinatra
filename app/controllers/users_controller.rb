@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   get "/signup" do
-    erb :"/users/signup"
+    erb :"/users/new"
   end
 
   post "/users" do
@@ -17,13 +17,29 @@ class UsersController < ApplicationController
     end
   end
 
-  get "/user/profile" do
+  get "/users/:id" do
     if !!session[:email]
-      @user = User.find_by(:email => session[:email])
+      @user = User.find(params[:id])
       erb :"/users/show"
     else
       redirect to "/validator"
     end
+  end
+
+  get "/users/:id/edit" do
+    @user = User.find(params[:id])
+    erb :"/users/edit"
+  end
+
+  patch "/users/:id" do
+    user = User.find(params[:id])
+    user.name = params[:name]
+    user.email = params[:email]
+    if user.authenticate(params[:old_password])
+      user.password = params[:new_password]
+    end
+    user.save
+    redirect to "/users/#{user.id}"
   end
 
   helpers do

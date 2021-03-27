@@ -2,7 +2,7 @@
 
 <p>Email: <%= @user.email %></p>
 
-<!-- Edit user name or email address -->
-<!-- Change Password -->
+<!-- Edit user name  email address -->
+<a href="/users/<%= @user.id %>/edit"><input type="submit" value="Edit Profile"></a>
 
 <!-- Delete user -->
