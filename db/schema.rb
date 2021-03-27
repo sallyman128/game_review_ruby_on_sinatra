@@ -14,11 +14,10 @@ ActiveRecord::Schema.define(version: 2021_03_25_013410) do
 
   create_table "games", force: :cascade do |t|
     t.string "name"
-    t.integer "max_player"
-    t.text "description"
   end
 
-  create_table "user_games", force: :cascade do |t|
+  create_table "reviews", force: :cascade do |t|
+    t.string "message"
     t.integer "user_id"
     t.integer "game_id"
   end

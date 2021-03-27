@@ -1,16 +1,23 @@
-user1 = User.create(
+User.delete_all
+User.reset_pk_sequence
+Game.delete_all
+Game.reset_pk_sequence
+Review.delete_all
+Review.reset_pk_sequence
+
+riku = User.create(
   :name => "Riku",
   :email => "riku@kh.com",
   :password => "rikupass"
 )
 
-user2 = User.create(
+sora = User.create(
   :name => "Sora",
   :email => "sora@kh.com",
   :password => "sorapass"
 )
 
-user3 = User.create(
+kairi = User.create(
   :name => "Kairi",
   :email => "kairi@kh.com",
   :password => "kairipass"
@@ -18,27 +25,31 @@ user3 = User.create(
 
 game1 = Game.create(
   :name => "Kingdom Hearts",
-  :max_player => 1,
-  :description => "A game with final fantasy and disney characters."
 )
 
 game2 = Game.create(
   :name => "Dragon Ball Fighter Z",
-  :max_player => 2,
-  :description => "The side-scroll DBZ fighter game."
 )
 
-game3 = Game.create(
-  :name => "Super Smash Bros",
-  :max_player => 8,
-  :description => "A game with a bunch of nintendo characters."
+
+review1 = Review.create(
+  :message => "great game"
 )
 
-user1.games << game1
-user1.games << game2
+review2 = Review.create(
+  :message => "needs more story"
+)
 
-user2.games << game2
-user2.games << game3
+review3 = Review.create(
+  :message => "BAD GAME!!!"
+)
 
-user3.games << game1
-user3.games << game3
+review4 = Review.create(
+  :message => "NEVER AGAIN!!"
+)
+
+game1.reviews << [review1,review2]
+game2.reviews << [review3,review4]
+sora.reviews << [review1, review3]
+riku.reviews << review2
+kairi.reviews << review4
