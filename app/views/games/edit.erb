@@ -1,0 +1,22 @@
+<h1>Edit a game</h1>
+
+<form method="POST" action="/games/<%= @game.id %>">
+  <input type="hidden" id="hidden" name="_method" value="PATCH" />
+
+  <p>
+    <label for="game_name">Name: </label>
+    <input type="string" name="name" value="<%= @game.name %>" />
+  </p>
+
+  <p>
+    <label for="game_max_players">Maximum Players: </label>
+    <input type="integer" name="max_player" value="<%= @game.max_player %>" />
+  </p>
+
+  <p>
+    <label for="game_description">Description: </label>
+    <input type="text" name="description" value="<%= @game.description %>" />
+  </p>
+
+  <input type="submit" value="Submit" />
+</form>

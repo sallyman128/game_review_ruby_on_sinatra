@@ -1,7 +1,11 @@
 class GamesController < ApplicationController
   get "/games" do
-    @games = Game.all
-    erb :"/games/index"
+    if !!session
+      @games = Game.all
+      erb :"/games/index"
+    else
+      
+    end
   end
 
   get "/games/new" do
@@ -13,8 +17,22 @@ class GamesController < ApplicationController
     erb :"/games/show"
   end
 
+  get "/games/:id/edit" do
+    @game = Game.find(params[:id])
+    erb :"/games/edit"
+  end
+
   post "/games" do
     game = Game.new()
+    game.name = params[:name]
+    game.max_player = params[:max_player]
+    game.description = params[:description]
+    game.save
+    redirect to :"/games/#{game.id}"
+  end
+
+  patch "/games/:id" do
+    game = Game.find(params[:id])
     game.name = params[:name]
     game.max_player = params[:max_player]
     game.description = params[:description]
