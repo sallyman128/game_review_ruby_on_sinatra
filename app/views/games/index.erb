@@ -4,3 +4,14 @@
   <a href="/games/<%= game.id %>"><%= game.name %></a>
   <br><br>
 <% end %>
+
+<br><br>
+
+<% if session[:email] %>
+  <%= "Logged in as #{session[:email]}."%> <br>
+  <a href="/logout">Logout</a>
+<% else %>
+  <%= "You are not logged in."%> <br>
+  <a href="/login">Login</a> <br>
+  <a href="/signup">Sign up</a> <br>
+<% end %>

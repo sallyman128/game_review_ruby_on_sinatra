@@ -1,6 +1,7 @@
 <h1>Sign Up</h1>
 
-<%= "Please input a valid name, email, and password" if @user && @user.errors.any?%>
+<p><%= "Please input a valid name, email, and password" if @user && @user.errors.any?%></p>
+<p><%= "Email already taken" if @duplicate_email %></p>
 
 <form action="/users" method="POST">
   <p>

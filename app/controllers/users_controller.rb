@@ -8,11 +8,11 @@ class UsersController < ApplicationController
     @user.name = params[:name]
     @user.email = params[:email]
     @user.password = params[:password]
-    if unique_email?(@user.email) && @user.save
-      redirect "/login"
-    elsif
 
+    if unique_email?(@user.email) && @user.save
+      redirect "/login"      
     else
+      @duplicate_email = true if !unique_email?(@user.email)
       erb :"/users/new"
     end
   end
