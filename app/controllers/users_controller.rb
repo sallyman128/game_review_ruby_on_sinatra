@@ -18,12 +18,8 @@ class UsersController < ApplicationController
   end
 
   get "/users/:id" do
-    if !!session[:email]
-      @user = User.find(params[:id])
-      erb :"/users/show"
-    else
-      redirect to "/validate"
-    end
+    @user = User.find(params[:id])
+    erb :"/users/show"
   end
 
   helpers do

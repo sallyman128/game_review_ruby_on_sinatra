@@ -1,3 +1,12 @@
-<h1>Hi <%= @user.name %></h1>
+<h1><%= @user.name %></h1>
 
 <!-- List all the user's game reviews -->
+<h2>Reviews by Sora</h2>
+
+<% @user.reviews.each do |review| %>
+  <p>
+    <b>Game:</b> <a href="/games/<%= review.game_id %>"><%= review.game.name %></a>
+    ---
+    <b>Message:</b> <%= review.message %>
+  </p>
+<% end %>

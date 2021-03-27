@@ -1,16 +1,11 @@
 <h1><%= @game.name %></h1>
 
-<p><b>Description: </b><%= @game.description %></p>
-<p><b>Maxmimum Number of Players: </b><%= @game.max_player %></p>
-
-
-<a href="/games/<%= @game.id %>/edit"><input type="button" value="Edit Game" /></a>
-
-<br><br>
-
-<form method="POST" action="/games/<%= @game.id %>">
-  <input type="hidden" id="hidden" name="_method" value="DELETE" />
-  <input type="submit" value="Delete Game" />
-</form>
+<!-- Display reviews of the game -->
+<h2>Reviews</h2>
+<% @game.reviews.each do |review|%>
+  <p>
+    From @<a href="/users/<%= review.user_id %>"><%= review.user.name %></a>, <%= review.message %>
+  </p>
+<% end %>
 
 <a href="/games"><= Back to all games</a>
