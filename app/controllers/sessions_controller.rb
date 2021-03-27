@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  get "/validator" do
+  get "/validate" do
     erb :"/sessions/validator"
   end
 

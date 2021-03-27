@@ -22,31 +22,8 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       erb :"/users/show"
     else
-      redirect to "/validator"
+      redirect to "/validate"
     end
-  end
-
-  get "/users/:id/edit" do
-    @user = User.find(params[:id])
-    erb :"/users/edit"
-  end
-
-  patch "/users/:id" do
-    user = User.find(params[:id])
-    user.name = params[:name]
-    user.email = params[:email]
-    if user.authenticate(params[:old_password])
-      user.password = params[:new_password]
-    end
-    user.save
-    redirect to "/users/#{user.id}"
-  end
-
-  delete "/users/:id" do
-    user = User.find(params[:id])
-    user.destroy
-    session.clear
-    redirect to "/games"
   end
 
   helpers do
