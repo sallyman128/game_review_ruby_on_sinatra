@@ -1,15 +1,15 @@
 class GamesController < ApplicationController
   get "/games" do
-    if !!session
-      @games = Game.all
-      erb :"/games/index"
-    else
-      
-    end
+    @games = Game.all
+    erb :"/games/index"
   end
 
   get "/games/new" do
-    erb :"/games/new"
+    if !!session[:email]
+      erb :"/games/new"
+    else
+      redirect to "/validator"
+    end
   end
 
   get "/games/:id" do
@@ -18,8 +18,12 @@ class GamesController < ApplicationController
   end
 
   get "/games/:id/edit" do
-    @game = Game.find(params[:id])
-    erb :"/games/edit"
+    if !!session[:email]
+      @game = Game.find(params[:id])
+      erb :"/games/edit"
+    else
+      redirect to "/validator"
+    end
   end
 
   post "/games" do
@@ -28,7 +32,7 @@ class GamesController < ApplicationController
     game.max_player = params[:max_player]
     game.description = params[:description]
     game.save
-    redirect to :"/games/#{game.id}"
+    redirect to "/games/#{game.id}"
   end
 
   patch "/games/:id" do
@@ -37,12 +41,16 @@ class GamesController < ApplicationController
     game.max_player = params[:max_player]
     game.description = params[:description]
     game.save
-    redirect to :"/games/#{game.id}"
+    redirect to "/games/#{game.id}"
   end
 
   delete "/games/:id" do
-    game = Game.find(params[:id])
-    game.destroy
-    redirect to :"/games"
+    if !!session[:email]
+      game = Game.find(params[:id])
+      game.destroy
+      redirect to :"/games"
+    else
+      redirect to "/validator"
+    end
   end
 end

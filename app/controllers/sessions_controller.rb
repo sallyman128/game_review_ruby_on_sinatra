@@ -14,6 +14,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  get "/validator" do
+    erb :validator
+  end
+
   get "/logout" do
     session.clear
     erb :"/sessions/logout"
