@@ -42,6 +42,13 @@ class UsersController < ApplicationController
     redirect to "/users/#{user.id}"
   end
 
+  delete "/users/:id" do
+    user = User.find(params[:id])
+    user.destroy
+    session.clear
+    redirect to "/games"
+  end
+
   helpers do
     def email_exists?(email)
       !!User.find_by(:email => params[:email])

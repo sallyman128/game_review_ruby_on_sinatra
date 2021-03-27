@@ -2,7 +2,10 @@
 
 <p>Email: <%= @user.email %></p>
 
-<!-- Edit user name  email address -->
 <a href="/users/<%= @user.id %>/edit"><input type="submit" value="Edit Profile"></a>
 
-<!-- Delete user -->
+
+<form method="POST" action="/users/<%= @user.id %>">
+  <input type="hidden" id="hidden" name="_method" value="DELETE" />
+  <input type="submit" value="Delete Profile" />
+</form>
