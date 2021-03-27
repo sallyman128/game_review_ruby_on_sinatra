@@ -4,16 +4,16 @@ class UsersController < ApplicationController
   end
 
   post "/users" do
-    if email_exists?(params[:email])
-      redirect "/signup"
+    @user = User.new
+    @user.name = params[:name]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    if unique_email?(@user.email) && @user.save
+      redirect "/login"
+    elsif
+
     else
-      user = User.new
-      user.email = params[:email]
-      user.name = params[:name]
-      user.password = params[:password]
-      user.save
-      session[:email] = user.email
-      redirect "/games"
+      erb :"/users/new"
     end
   end
 
@@ -23,8 +23,8 @@ class UsersController < ApplicationController
   end
 
   helpers do
-    def email_exists?(email)
-      !!User.find_by(:email => params[:email])
+    def unique_email?(email)
+      !User.find_by(:email => email)
     end
   end
 end

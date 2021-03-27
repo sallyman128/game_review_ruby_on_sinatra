@@ -1,5 +1,7 @@
 <h1>Sign Up</h1>
 
+<%= "Please input a valid name, email, and password" if @user && @user.errors.any?%>
+
 <form action="/users" method="POST">
   <p>
     <label for="user_name">Name: </label>
