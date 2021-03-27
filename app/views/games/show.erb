@@ -6,8 +6,10 @@
     From @<a href="/users/<%= review.user_id %>"><%= review.user.name %></a>, <%= review.message %>
     <!-- if user owns review, allow them to edit/delete it -->
     <!-- if user.email == session[:email], then "Click here to edit review" -->
+
     <% if review.user.email == session[:email] %>
-      <a href="/reviews/<%= review.id %>/edit">Click here to edit review</a>
+      <a href="/reviews/<%= review.id %>/edit"><input type="button" value="Edit" /></a>
+      <a href="/reviews/<%= review.id %>/delete"><input type="button" value="Delete" /></a>
     <% end %>
   </p>
 <% end %>

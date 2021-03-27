@@ -1,0 +1,12 @@
+<h2>Are you sure you want to delete the following review?</h2>
+
+<p><b>Game: </b><%= @review.game.name %></p>
+<p><b>Review: </b><%= @review.message %></p>
+
+
+<form method="POST" action="/reviews/<%= @review.id %>">
+  <input type="hidden" id="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Yes, Delete">
+</form>
+
+<a href="/games/<%= @review.game.id %>"><input type="button" value="No, Cancel"></a>
