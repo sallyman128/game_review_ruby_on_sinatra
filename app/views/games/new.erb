@@ -1,6 +1,6 @@
 <h1>Add a new game</h1>
 
-<form>
+<form action="/games" method="POST">
   <p>
     <label for="game_name">Name: </label>
     <input type="string" name="name" id="game_name" />
@@ -8,7 +8,7 @@
 
   <p>
     <label for="game_max_players">Maximum Players: </label>
-    <input type="integer" name="max_players" id="game_max_player" />
+    <input type="integer" name="max_player" id="game_max_player" />
   </p>
 
   <p>
