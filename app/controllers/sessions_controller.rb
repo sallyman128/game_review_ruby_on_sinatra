@@ -5,12 +5,12 @@ class SessionsController < ApplicationController
   end
 
   post "/sessions" do
-    user = User.find_by(:email => params[:email])
-    if user && user.authenticate(params[:password])
-      session[:email] = user.email
+    @user = User.find_by(:email => params[:email])
+    if @user && @user.authenticate(params[:password])
+      session[:email] = @user.email
       redirect to "/games"
     else
-      redirect to "/login"
+      erb :"/sessions/login"
     end
   end
 

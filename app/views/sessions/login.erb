@@ -1,5 +1,7 @@
 <h1>Login</h1>
 
+<%= "Please input a valid email and password" if !@user %>
+
 <form action="/sessions" method="POST">
   <p>
     <label for="user_email">Email: </label>
