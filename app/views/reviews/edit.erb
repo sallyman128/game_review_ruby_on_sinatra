@@ -1,0 +1,9 @@
+<h1>edit form for an existing review</h1>
+
+Review for <%= @review.game.name %>
+
+<form>
+  Review: <input type="text" value="<%= @review.message %>">
+  
+  <input type="submit" value="Submit Edit">
+</form>
