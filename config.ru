@@ -8,4 +8,5 @@ use Rack::MethodOverride
 use SessionsController
 use UsersController
 use GamesController
+use ReviewsController
 run ApplicationController

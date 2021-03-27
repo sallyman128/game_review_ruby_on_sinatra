@@ -1,6 +1,5 @@
 <h1><%= @game.name %></h1>
 
-<!-- Display reviews of the game -->
 <h2>Reviews</h2>
 <% @game.reviews.each do |review|%>
   <p>
@@ -8,4 +7,21 @@
   </p>
 <% end %>
 
+<!-- Allow user to add a review -->
+
+<!-- Allow user to edit and delete their own review -->
+
+<br><br>
+
 <a href="/games"><= Back to all games</a>
+
+<br><br>
+
+<% if session[:email] %>
+  <%= "Logged in as #{session[:email]}."%> <br>
+  <a href="/logout">Logout</a>
+<% else %>
+  <%= "You are not logged in."%> <br>
+  <a href="/login">Login</a> <br>
+  <a href="/signup">Sign up</a> <br>
+<% end %>

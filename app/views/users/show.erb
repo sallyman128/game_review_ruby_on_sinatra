@@ -1,7 +1,7 @@
 <h1><%= @user.name %></h1>
 
 <!-- List all the user's game reviews -->
-<h2>Reviews by Sora</h2>
+<h2>All Reviews</h2>
 
 <% @user.reviews.each do |review| %>
   <p>
@@ -9,4 +9,15 @@
     ---
     <b>Message:</b> <%= review.message %>
   </p>
+<% end %>
+
+<br><br>
+
+<% if session[:email] %>
+  <%= "Logged in as #{session[:email]}."%> <br>
+  <a href="/logout">Logout</a>
+<% else %>
+  <%= "You are not logged in."%> <br>
+  <a href="/login">Login</a> <br>
+  <a href="/signup">Sign up</a> <br>
 <% end %>
