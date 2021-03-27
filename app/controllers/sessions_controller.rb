@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
     user = User.find_by(:email => params[:email])
     if user && user.authenticate(params[:password])
       session[:email] = user.email
-      erb :"/games/index"
+      redirect to "/games"
     else
-      redirect "/login"
+      redirect to "/login"
     end
   end
 

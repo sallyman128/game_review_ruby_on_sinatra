@@ -17,6 +17,15 @@ class UsersController < ApplicationController
     end
   end
 
+  get "/user/profile" do
+    if !!session[:email]
+      @user = User.find_by(:email => session[:email])
+      erb :"/users/show"
+    else
+      redirect to "/validator"
+    end
+  end
+
   helpers do
     def email_exists?(email)
       !!User.find_by(:email => params[:email])
