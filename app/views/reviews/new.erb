@@ -1,1 +1,8 @@
-create a new review
+<h1>Add new review</h1>
+
+<h2>For <%= @game.name %></h2>
+
+<form method="POST" action="/<%= @game.id %>/reviews">
+  Review: <input type="text" name="message" />
+  <input type="submit" value="Add">
+</form>

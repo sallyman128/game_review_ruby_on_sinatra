@@ -17,3 +17,9 @@ User has many reviews
 Game has many reviews
 review belongs to User
 Review belongs to Game
+
+
+
+Allow user to add review from game show page
+
+Only allow logged in users to see their respective edit/delete pages

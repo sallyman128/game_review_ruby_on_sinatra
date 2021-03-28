@@ -4,21 +4,19 @@
 <% @game.reviews.each do |review|%>
   <p>
     From @<a href="/users/<%= review.user_id %>"><%= review.user.name %></a>, <%= review.message %>
-    <!-- if user owns review, allow them to edit/delete it -->
-    <!-- if user.email == session[:email], then "Click here to edit review" -->
 
     <% if review.user.email == session[:email] %>
-      <a href="/reviews/<%= review.id %>/edit"><input type="button" value="Edit" /></a>
-      <a href="/reviews/<%= review.id %>/delete"><input type="button" value="Delete" /></a>
+      <a href="/games/<%= @game.id %>/reviews/<%= review.id %>/edit"><input type="button" value="Edit" /></a>
+      <a href="/games/<%= @game.id %>/reviews/<%= review.id %>/delete"><input type="button" value="Delete" /></a>
     <% end %>
   </p>
 <% end %>
 
-<!-- Allow user to add a review -->
+<br>
 
-<!-- Allow user to edit and delete their own review -->
+<a href="/games/<%= @game.id %>/reviews/new"><input type="button" value="Add new review"></a>
 
-<br><br>
+<br><br><br>
 
 <a href="/games"><= Back to all games</a>
 
