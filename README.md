@@ -1,5 +1,5 @@
 Description
-  This program lets users view a community of reviews for a list of games. The user also has the ability to add/edit/delete their own review posts.
+  This program lets users view a community of reviews for a list of videogames. The user also has the ability to add/edit/delete their own review submissions.
 
 
 Install instructions
