@@ -23,24 +23,13 @@ kairi = User.create(
   :password => "kairipass"
 )
 
-game1 = Game.create(
-  :name => "Kingdom Hearts",
-)
-
+game1 = Game.create(:name => "Kingdom Hearts",)
 game2 = Game.create(:name => "Dragon Ball Fighter Z",)
 
-
 review1 = Review.create(:message => "great game")
-
 review2 = Review.create(:message => "needs more story")
-
-review3 = Review.create(
-  :message => "BAD GAME!!!"
-)
-
-review4 = Review.create(
-  :message => "NEVER AGAIN!!"
-)
+review3 = Review.create(:message => "BAD GAME!!!")
+review4 = Review.create(:message => "NEVER AGAIN!!")
 
 game1.reviews << [review1,review2]
 game2.reviews << [review3,review4]
