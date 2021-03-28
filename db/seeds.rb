@@ -27,18 +27,12 @@ game1 = Game.create(
   :name => "Kingdom Hearts",
 )
 
-game2 = Game.create(
-  :name => "Dragon Ball Fighter Z",
-)
+game2 = Game.create(:name => "Dragon Ball Fighter Z",)
 
 
-review1 = Review.create(
-  :message => "great game"
-)
+review1 = Review.create(:message => "great game")
 
-review2 = Review.create(
-  :message => "needs more story"
-)
+review2 = Review.create(:message => "needs more story")
 
 review3 = Review.create(
   :message => "BAD GAME!!!"
@@ -53,3 +47,14 @@ game2.reviews << [review3,review4]
 sora.reviews << [review1, review3]
 riku.reviews << review2
 kairi.reviews << review4
+
+Game.create(:name => "Dark Souls")
+Game.create(:name => "Dark Souls II")
+Game.create(:name => "Dark Souls III")
+Game.create(:name => "Soul Calibur")
+Game.create(:name => "Jak and Daxter 3")
+Game.create(:name => "Super Smash Bros")
+Game.create(:name => "Sonic")
+Game.create(:name => "Mario Party")
+Game.create(:name => "Hollow Knight")
+Game.create(:name => "Ori!")

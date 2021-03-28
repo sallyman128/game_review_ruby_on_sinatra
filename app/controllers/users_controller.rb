@@ -5,8 +5,8 @@ class UsersController < ApplicationController
 
   post "/users" do
     @user = User.new
-    @user.name = params[:name]
-    @user.email = params[:email]
+    @user.name = params[:name].capitalize
+    @user.email = params[:email].downcase
     @user.password = params[:password]
 
     if unique_email?(@user.email) && @user.save

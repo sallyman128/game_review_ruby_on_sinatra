@@ -23,3 +23,8 @@ Review belongs to Game
 Allow user to add review from game show page
 
 Only allow logged in users to see their respective edit/delete pages
+
+
+Make sure that there's no case-sensitivity problems in linking with the db
+
+Alphabetize the Games index --- DONE :)
