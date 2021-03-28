@@ -1,14 +1,19 @@
-Description
+# Description
   This program lets users view a community of reviews for a list of videogames. The user also has the ability to add/edit/delete their own review submissions.
 
 
-Install instructions
+# Install instructions
   In your terminal, run "$ bundle install" to download and install all the necessary gems.
 
-Contributors guide
+# Contributors guide
+  All are welcome to contribute to this project. If you would like to suggest any areas of improvement, please follow the typical git workflow:
+   1. Fork this repo.
+   2. Update your fork and provide descriptive commits.
+   3. Open a Pull Request against this repo.
 
+  I will gladly review your request. Thank you!! :)
 
-License
+# License
   https://opensource.org/licenses/MIT
 
   Copyright 2021 Salmaan Ali
