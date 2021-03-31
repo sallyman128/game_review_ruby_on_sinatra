@@ -9,13 +9,18 @@
 
 <a href="/games/<%= @review.game.id %>"><input type="button" value="Cancel"></a>
 
-<br><br>
+<br>
 
 <% if session[:email] %>
-  <%= "Logged in as #{session[:email]}."%> <br>
-  <a href="/logout">Logout</a>
+  <% user = User.find_by(:email => session[:email]) %>
+  <p>
+    Logged in as <a href="/users/<%= user.id %>"><%= user.name %></a><br>
+    <a href="/logout">Logout</a>
+  </p>
 <% else %>
-  <%= "You are not logged in."%> <br>
-  <a href="/login">Login</a> <br>
-  <a href="/signup">Sign up</a> <br>
+  <p>
+    <%= "You are not logged in."%> <br>
+    <a href="/login">Login</a> <br>
+    <a href="/signup">Sign up</a> <br>
+  </p>
 <% end %>
